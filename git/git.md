@@ -29,7 +29,7 @@
     - git push origin HEAD:dev (推送当前分支到远程dev分支，远程dev不存在会创建)
     - git branch --set-upstream-to=origin/main  dev 关联当前分支到远程分支,devtrack remote branch
 -----
-- git remote add  origin  <url>
+- git remote add  origin  url
     - url : git@url.git  / https://url.git
     - git pull origin master --allow-unrelated-histories(本地仓库有文件，远程仓库也有文件)   
     - git branch --set-upstream-to=origin/main  dev
