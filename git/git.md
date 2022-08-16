@@ -6,7 +6,7 @@
 
 
 ::: tip command
-- git log 查看提交历史 ==alias git-log='git log -all --pretty=oneline --abbrev-commit --graph'==
+- git log 查看提交历史 ==alias git-log='git log --all --pretty=oneline --abbrev-commit --graph'==
 - 版本切换：git reset --hard commitID
 - git reflog 可以查看到删除掉的提交记录
 - .gitignore (*.txt 指定不被git管理的文件)
