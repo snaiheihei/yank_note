@@ -2,7 +2,7 @@
 
 
 [git脑图](https://naotu.baidu.com/file/a7dcc552a46c8912e20d991d1249ad85)
-
+[视频](https://www.bilibili.com/video/BV1MU4y1Y7h5?p=11&vd_source=327b91fe5f132d5f43cffb262b7cc19d)
 
 
 ::: tip command
