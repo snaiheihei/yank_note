@@ -43,7 +43,7 @@ git config --global user.email "email@example.com"
 git config --global -l 显示全局配置
 -  master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
 - 干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
-- 合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+- 合并分支时，==加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并==，而fast forward合并就看不出来曾经做过合并。
 
 :::
 
@@ -55,6 +55,5 @@ Git rebase 合并分支
 - git add .
 - git rebase --continue 进行提交
 ![Img](./FILES/git.md/img-20220824221907.png)
-2
 :::
 
