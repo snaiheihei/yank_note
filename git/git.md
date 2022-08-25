@@ -27,7 +27,7 @@
 - git remote remove origin :删除远程仓库信息
 - git clone -b dev xxx.git :直接克隆远程仓库👻==推荐直接clone==
     - git push origin HEAD:dev (推送当前分支到远程dev分支，远程dev不存在会创建)
-    - git branch --set-upstream-to=origin/main  dev 关联当前分支到远程分支,devtrack remote branch
+    - git branch --set-upstream-to=origin/main  dev 关联当前分支到远程分支,dev track remote branch
 -----
 - git remote add  origin  url
     - url : git@url.git  / https://url.git
