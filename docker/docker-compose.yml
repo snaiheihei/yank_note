@@ -1,3 +1,102 @@
+version: "3.6"
+services:
+        jenkins:
+                image: 'jenkins/jenkins:lts'
+                container_name: jenkins1
+                ports:
+                        - '8080:8080'
+                        - '50000:50000'
+                privileged:
+                        true
+                volumes:
+                        - 'jenkins_home:/var/jenkins_home'
+                networks:
+                        - vm1_net
+                environment:
+                        - http_proxy=http://3.20.128.5:88
+                        - https_proxy=http://3.20.128.5:88
+        gitlab:
+                image: gitlab/gitlab-ce:latest
+                container_name: gitlab1
+                privileged: true
+                networks:
+                        - vm1_net
+                ports:
+                        - "9980:80"
+                        - "9922:22"
+                volumes:
+                        - 'gitlab_config:/etc/gitlab'
+                        - 'gitlab_log:/var/log/gitlab'
+                        - 'gitlab_data:/var/opt/gitlab'
+                environment:
+                        - http_proxy=http://3.20.128.5:88
+                        - https_proxy=http://3.20.128.5:88
+        mysql:
+                container_name: mysql1
+                privileged:
+                        true
+                restart:
+                        always
+                networks:
+                        - vm1_net
+                image:
+                        mysql:latest
+                ports:
+                        - '3306:3306'
+                volumes:
+                        - 'mysql-data:/var/lib/mysql'
+                        - 'mysql-log:/var/log/mysql'
+                        - 'mysql-cfg:/etc/mysql'
+                        - 'mysql-init:/docker-entrypoint-initdb.d/'
+                environment:
+                        - 'MYSQL_ROOT_PASSWORD=123456'        
+                        - 'http_proxy=http://3.20.128.5:88'
+                        - 'https_proxy=http://3.20.128.5:88'
+        wiki:
+                container_name: wiki1
+                privileged:
+                        true
+                networks:
+                        - vm1_net
+                image:
+                        mediawiki:latest
+                depends_on:
+                        - mysql
+                environment:
+                        DB_TYPE: mysql
+                        DB_HOST: mysql
+                        DB_PORT: 3306
+                        DB_USER: wikijs
+                        DB_PASS: wiki123456
+                        DB_NAME: wiki
+                        restart: unless-stopped
+                ports:
+                        - "3000:3000"
+                        - "3443:3443"
+                        - "8081:80"
+
+        
+volumes:
+        jenkins_home:
+                driver: local
+        gitlab_config:
+                driver: local
+        gitlab_data:
+                driver: local
+        gitlab_log:
+                driver: local
+        mysql-cfg:
+                driver: local
+        mysql-data:
+                driver: local
+        mysql-log:
+                driver: local
+        mysql-init:
+                driver: local
+
+networks:
+        vm1_net:
+                driver: bridge
 
 
 
