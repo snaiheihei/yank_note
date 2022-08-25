@@ -25,6 +25,7 @@ python 列表是什么
 <button onclick="ctx.ui.useToast().show(`info`, `HELLOWORLD!`)">TEST</button>
 <a herf="www.baidu.com">link</a>
 ```
+
 + 中心节点{.mindmap}
     + aa
     + bb
@@ -39,12 +40,12 @@ import math
 
 import requests
 res = requests.get("http://www.baidu.com")
-print(res)
+print(res.content.decode('utf8'))
 list1 = list(range(10))
 
 ```
 
-```shell
+```bash
 # --run--
 echo 111
 

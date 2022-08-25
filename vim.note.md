@@ -29,3 +29,7 @@ Go 日常开发常备第三方库和工具  https://zhuanlan.zhihu.com/p/4286472
 go package search  https://pkg.go.dev/
 
 docker 运行GUI http://t.zoukankan.com/lijinze-tsinghua-p-8686264.html
+
+- 验证gitlab configure
+- start wiz 
+- qulify agnes
