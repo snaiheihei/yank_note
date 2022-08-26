@@ -86,6 +86,20 @@ services:
                         - 9269:9269
                 networks:
                         - vm1_net
+        portainer:
+                image: portainer/portainer:latest
+                container_name: portainer1
+                restart:
+                        always
+                privileged:
+                        true
+                volumes:
+                        - portainer_data:/data
+                        - /var/run/docker.sock:/var/run/docker.sock
+                ports:
+                        - 9000:9000
+                networks:
+                        - vm1_net
 
         
 volumes:
@@ -107,10 +121,11 @@ volumes:
                 driver: local
         wizdata:
                 driver: local
+        portainer_data:
+                driver: local
+        #portainer_sock:
+        #        driver: local
 
 networks:
         vm1_net:
                 driver: bridge
-
-
-
