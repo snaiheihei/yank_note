@@ -66,6 +66,8 @@ docker 是一种容器技术，解决软件环境迁移问题，沙箱机制，�
 - 构建镜像：docker build -f dockerfile  -t imdName:tag . 
 :::
 
+https://blog.csdn.net/yb546822612/article/details/105276164 docker-compose 所有参数解释
+
 
 
 
