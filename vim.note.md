@@ -33,3 +33,5 @@ docker 运行GUI http://t.zoukankan.com/lijinze-tsinghua-p-8686264.html
 - 验证gitlab configure
 - start wiz 
 - qulify agnes
+
+yum clean all && yum makecache  更新yum缓存
