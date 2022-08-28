@@ -10,14 +10,15 @@ class Driver(object):
     def __init__(self):
         chrome_options = webdriver.ChromeOptions()
         # 使用headless无界面浏览器模式
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--disable-gpu')
+        # chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--disable-gpu')
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
         self.driver.implicitly_wait(5)
         self.driver.maximize_window()
 
     def open_url(self, url):
         self.driver.get(url)
+
 
     def locateElement(self, locate_type, value):
         el = None
@@ -72,6 +73,10 @@ class Driver(object):
     def get_attr(self, locate_type, value, tagAttr):
         el = self.locateElement(locate_type, value)
         return el.get_attribute(tagAttr)
+
+    def get_location(self, locate_type, value):
+        el = self.locateElement(locate_type, value)
+        return el.rect
 
     def __del__(self):
         # driver销毁时关闭

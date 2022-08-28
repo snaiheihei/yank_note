@@ -38,6 +38,11 @@ max file descriptors [4096] for elasticsearch process is too low, increase to at
 - [ ] vim /etc/security/limits.conf
 - [ ] * soft nofile 65536
       * hard nofile 65536
+       或者限定某个用户
+      elsearch soft nofile 65536
+      elsearch hard nofile 65536
+- ulimit -Sn/Hn 显示当前用户最大文件描述符
+- su - elsearch 重切该用户生效
 ::::
 ::: tip 跨域访问
 http.cors.enabled: true
@@ -58,3 +63,15 @@ http.cors.allow-origin: "*"
        cluster.initial_master_nodes: [“node-1”]
 * restart elasticsearch
 :::
+::: tip beat 数  据采集器
+- metricbeat modules lsit/enable/disable 展示modules, enable某个module
+-   安装仪表盘
+    - vim metricbeat.yml 添加： setup.kibana: 
+                                 host xxxx:5601
+   - metricbeat setup --dashboards
+   - ./metricbeat modules enable xxxmodule 
+   - vim ./modules.d/xxx.yml 开启所要记录的参数
+   - ./metricbeat 开启收集
+   -[更多modules介绍](https://www.elastic.co/guide/en/beats/metricbeat/7.13/metricbeat-module-docker.html)
+:::
+ 
