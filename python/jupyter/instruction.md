@@ -14,7 +14,7 @@
     if [ -z "$jy" ]
     then
             echo "Start Up jupyter ..."
-            jupyter notebook --ip 0.0.0.0 --notebook-dir="$jy_work" --no-browser  > ${jy_work}/jupyter.log  2>&1 &
+            nohup jupyter notebook --ip 0.0.0.0 --notebook-dir="$jy_work" --no-browser  > ${jy_work}/jupyter.log  2>&1 &
     fi
     ```
 -  安装jupyter插件
