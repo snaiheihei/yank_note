@@ -9,6 +9,7 @@ import re
 # import shutil
 import time 
 import datetime
+from threading import Thread
 
 class BugDispatch(object):
     
@@ -16,7 +17,9 @@ class BugDispatch(object):
         self.local_code_path = local_code_path
         self.origin_git = "xxxx.git"
         self.all_files = []
-        # 开启一线程异步同步代码 self.clone_timer()
+        # 开启一线程异步同步代码 self.clone_timer(),主线程结束应停止该线程daemon=True
+        t1 = Thread(target=self.clone_timer, daemon=True)
+        t1.start()
 
     def files_map(self):
         # 文件名和文件的绝对路径映射表

@@ -8,6 +8,7 @@ from flask_cors import CORS
 from gevent import pywsgi
 import json
 from bugdispatch import  BugDispatch
+
 app=Flask(__name__)
 # 只接受get方法访问
 @app.route("/bugdispatch_1.0", methods=["GET"])
@@ -38,7 +39,7 @@ def check():
 
 def main(log_url, branch):
     log_url = log_url
-    buger = BugDispatch('./code_repo_bak', '/home/work/QA_projects/bugdispatch_pro/code_repo_bak/androidtrunk')
+    buger = BugDispatch('/home/work/QA_projects/bugdispatch_pro/code_repo_bak/androidtrunk')
     try:
         bug_author = buger.get_bug_author(log_url)
     except Exception as e:
