@@ -3,6 +3,7 @@
 ::: tip GIL
 - GIL全局解释器锁： 全局锁的存在会对多线程的效率有不小影响。甚至就几乎等于Python是个单线程的程序； 
 - 多线程会争取一个python解释器，会被分配时间片去执行解释各自的代码；
+- python的多线程一个主要用途就是==异步==分配任务执行；
 - 验证单线程多线程多进程对多核心cpu的使用情况：
     linux ==htop 实时查看多核使用情况==
     脚本模拟单线程，多线程，多进程（在linux系统中执行）
@@ -20,6 +21,26 @@
     while True:
         pass
    ```
+   shell中模拟多核高负载
+   ```bash
+   time echo "scale=20000;4*a(1)" | bc -lq &
+   time echo "scale=20000;4*a(1)" | bc -lq &
+   ```
+   go goroutine协程可以并行完整利用多核CPU
+  ```go
+    package main
+
+    func subprocess(){
+            for{}
+            }
+
+    func main(){
+            // 开启一go协程
+            go subprocess()
+            for{}
+            }
+  ```
+  
 :::
 
 ::: tip 多线程

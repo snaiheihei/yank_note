@@ -3,7 +3,7 @@
 ::: tip 
 python脚本中默认的变量
 - \_\_file__ 执行脚本的名字python  (/aa/bb/xxx.py)取整体名字 
-- \_\_name__  为“_\_name__"
+- \_\_name__  为“_\_main__"
 :::
 
 ::: tip 💌os path

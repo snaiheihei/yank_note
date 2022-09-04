@@ -8,7 +8,7 @@ import os
 class Jieqiu(object):
 
 	def __init__(self):
-		folder = os.path.dirname(os.path.abspath("__file__"))
+		folder = os.path.dirname(os.path.abspath(__file__))
 		# 初始化背景音乐, 方式一 pygame mixer播放，支持多类型音频
 		theme_file = os.path.join(folder, "sound", '人生最美初见时.mp3')
 		soundAPI.music_effectsDispatcher(theme_file)
